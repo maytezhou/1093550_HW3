@@ -5,58 +5,68 @@ const prices = [ 150,200,250,225,220,230,280,300,214,158,149,315 ];
 
 
   
-  //aids in looping through the array
+  // creating a funtion that prints dynamically the food images,  names and prices
  
-  const addImage = () => {
+  const printFoodImg = () => {
    
-    //adds image to the image element
+    
     for (let i = 0 ; i < images.length; i ++){
-         //creates a div element
-    let imageOut = document.createElement("div");
-    //sets the id of the div
+
+    //creates a  row element
+    const imageOut = document.createElement("div");
     imageOut.setAttribute("id",`row${i}`);
     imageOut.setAttribute("class","row");
-    let imageIn = document.createElement("div");
+
+    //creates a column
+    const imageIn = document.createElement("div");
     imageIn.setAttribute("id",`column${i}`);
     imageIn.setAttribute("class","column");
     
-    //cereates an image element
-    let img = document.createElement("img");
-        img.setAttribute("style","width:100%");          
-        img.setAttribute("class","cover");   
-
-
+    //creates an image element
+    const img = document.createElement("img");
+    img.setAttribute("style","width:100%");          
+    img.setAttribute("class","cover");   
         
         img.src=images[i];
-        img.setAttribute("id",`btnImg${i}`);
-        imageIn.appendChild(img);
-        imageOut.appendChild(imageIn);
-        document.querySelector("#images-container").appendChild(imageOut);
+        img.setAttribute("id",`img${i}`);
+    
+    // appendings:
+    imageIn.appendChild(img); //appends the img to the column
+    imageOut.appendChild(imageIn); // appends the column to the row
+    document.querySelector("#images-container").appendChild(imageOut); //appends each row to the container of images
+
+
+    //for each columns print food name and prices
+    const column=  document.getElementById(`column${i}`)
+    column.innerHTML += `
+        <div class="center_p">
+        <p class="blocktext">${dishes[i]}</p>
+        </div>
+        <div class="center_p">
+        <p class="blocktext"> $${prices[i]}</p>
+        </div>
+       `;
     }
+
   
 };
-  addImage();
 
 
-  for ( let i = 0 ; i < images.length; i ++){
-    let btnTitle = document.getElementById(`btnImg${i}`);  
-    document.getElementById(`column${i}`).innerHTML += `
-    <div class="center_p" class="no_marginDiv">
-    <p class="blocktext">${dishes[i]}</p>
-    </div>
-    <div class="center_p">
-    <p class="blocktext"> $${prices[i]}</p>
-    </div>
-   `;
+// creating a function that gets random food and price when pressing a button element
+const getRandomFoodAndPrice = () => {
 
-  }
-
-
-
-  let q_rand_btn = document.getElementById("q_rand_btn");
+  const q_rand_btn = document.getElementById("q_rand_btn");
   q_rand_btn.addEventListener("click",()=>{
-    let divPrice=document.getElementById("divPrice");
+    const divPrice=document.getElementById("divPrice");
     let randomIndex=  Math.floor(Math.random() * 12);
     divPrice.innerHTML=`<p>${dishes[randomIndex]} $ ${prices[randomIndex]}`;
-  });
-  
+  });  
+
+}
+
+
+//Calling functions : 
+printFoodImg();  //Printing the  food images , their names and  prices
+getRandomFoodAndPrice(); // Getting random food and price when pressing a button element
+
+ 

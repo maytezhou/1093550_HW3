@@ -14,36 +14,29 @@
   img{
       width: 300px;
       height: 300px;
-  }
-  
+  } 
 
 
-  .center {
+  .center { /* for centering the button element*/
     display: flex;
     justify-content: center;
     align-items: center;
     margin:8px;
     
     }
-    .center_p {
+    .center_p { /* for centering the p elements:  food name and price inside img*/
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 0;
-      padding: 0;
-    
-      
-      }
-    
-  .no_marginDiv{
-    margin: 0;
-    padding: 0;
-
-  }
-
-    .center_ {
-     text-align: center;
+      padding: 0;   
     }
+
+    .center_ { /* for centering the p element : the answer of the random question  */
+      text-align: center;
+     }
+    
+   
    
 
  
