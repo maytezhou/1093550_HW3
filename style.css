@@ -3,6 +3,9 @@
     box-sizing: border-box;
   }
   
+  #divPrice{
+    margin:2rem;
+  }
   .column {
     float: left;
     width: 25%;
@@ -15,7 +18,33 @@
   
 
 
- 
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:8px;
+    
+    }
+    .center_p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    
+      
+      }
+    
+  .no_marginDiv{
+    margin: 0;
+    padding: 0;
+
+  }
+
+    .center_ {
+     text-align: center;
+    }
+   
 
  
   @media only screen and (max-width: 799px) and (min-width: 400px)  {
